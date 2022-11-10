@@ -48,3 +48,10 @@ export default {
   emits: ['login', 'logout', 'createAccount'],
 };
 </script>
+<style lang="scss">
+.wrapper {
+  .welcome {
+    font-size: 30px;
+  }
+}
+</style>
