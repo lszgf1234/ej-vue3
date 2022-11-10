@@ -25,6 +25,7 @@
     "@vitejs/plugin-vue-jsx": "^2.0.1",
     "babel-loader": "^8.3.0",
     "css-loader": "^6.7.1",
+    "element-plus": "2.1.8",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
     "storybook": "^6.5.13",

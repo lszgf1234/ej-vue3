@@ -22,9 +22,9 @@
       </div>
       <div>
         <span class="welcome" v-if="user">Welcome, <b>{{ user.name }}</b>!</span>
-        <my-button size="small" @click="$emit('logout')" label="Log out" v-if="user" />
-        <my-button size="small" @click="$emit('login')" label="Log in" v-if="!user" />
-        <my-button primary size="small" @click="$emit('createAccount')" label="Sign up" v-if="!user" />
+        <ElButton type="primary" size="small" @click="$emit('logout')" label="Log out" v-if="user">Log out</ElButton>
+        <ElButton size="small" @click="$emit('login')" label="Log in" v-if="!user" >Log in</ElButton>
+        <ElButton primary size="small" @click="$emit('createAccount')" label="Sign up" v-if="!user">Sign up</ElButton>
       </div>
     </div>
   </header>
@@ -32,12 +32,11 @@
 
 <script>
 import './header.css';
-import MyButton from '../button-test/Button.vue';
-
+import {ElButton} from 'element-plus'
 export default {
   name: 'my-header',
 
-  components: { MyButton },
+  components: { ElButton },
 
   props: {
     user: {
