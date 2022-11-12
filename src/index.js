@@ -3,7 +3,7 @@ import EjWorkflowPreview from './components/ej-workflow-preview'
 // import EjTable from './wx-table/index.js'
 // import EjTableList from './Table/index.js'
 // import EjFormGroup from './wx-form-group/index.js'
-// import EjEditor from './wx-editor'
+import EjEditor from './components/ej-editor'
 //
 // import EjAuth from '@/directive/permission/btn-auths'
 
@@ -12,7 +12,7 @@ export {
   // EjWorkflowPreviewV1,
   // EjTableList,
   // EjTable,
-  // EjEditor,
+  EjEditor,
   //
   // // 指令
   // EjAuth,
@@ -25,7 +25,7 @@ export default {
     // app.use(EjTableList)
     // app.use(EjTable)
     // app.use(EjFormGroup)
-    // app.use(EjEditor)
+    app.use(EjEditor)
     //
     // app.use(EjAuth)
   }

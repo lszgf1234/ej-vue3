@@ -1,0 +1,26 @@
+/**
+* 默认样式
+* 修复 h1 - h5的样式污染
+*/
+
+.editor-base {
+  h5 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+}
