@@ -23,13 +23,16 @@
     "@storybook/vue3": "^6.5.13",
     "@vitejs/plugin-vue": "^3.1.2",
     "@vitejs/plugin-vue-jsx": "^2.0.1",
+    "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
     "css-loader": "^6.7.1",
     "element-plus": "2.1.8",
+    "postcss": "^8.4.19",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
     "storybook": "^6.5.13",
     "style-loader": "^3.3.1",
+    "tailwindcss": "^3.2.4",
     "vite": "^3.1.8",
     "vue-loader": "^16.8.3"
   }
