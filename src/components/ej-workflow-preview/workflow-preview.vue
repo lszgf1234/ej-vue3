@@ -19,7 +19,7 @@
 
 <script setup name="EjWorkflowPreview">
 import {defineProps} from 'vue'
-import { ElTimeline, ElTimelineItem} from 'element-plus'
+import { ElTimeline, ElTimelineItem, ElTooltip} from 'element-plus'
 
 import {parseTime} from '../../utils/ruoyi'
 

@@ -5,13 +5,14 @@ export default {
   title: 'Example/Button',
   component: MyButton,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-    onClick: {},
-    size: {
-      control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
-    },
+  argTypes: { // 配置插件
+    // backgroundColor: { control: 'color' },
+    // onClick: {},
+    // size: {
+    //   control: { type: 'select' },
+    //   options: ['small', 'medium', 'large'],
+    // },
+    // test: { control: 'color' }
   },
 };
 
