@@ -1,6 +1,10 @@
 {
-  "name": "ej-ui-vue3",
-  "version": "0.0.0",
+  "name": "@ej/ui-vue3",
+  "version": "0.0.1",
+  "description": "业务组件库",
+  "author": "lszgf",
+  "private": true,
+  "main": "src/index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -37,5 +41,9 @@
     "tailwindcss": "^3.2.4",
     "vite": "^3.1.8",
     "vue-loader": "^16.8.3"
+  },
+  "peerDependencies": {
+    "element-plus": "2.1.8",
+    "vue": "^3.2.41"
   }
 }
