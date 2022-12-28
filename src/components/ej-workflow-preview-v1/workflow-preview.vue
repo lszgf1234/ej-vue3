@@ -21,7 +21,7 @@
 </template>
 
 <script setup name="EjWorkflowPreviewV1">
-import { ElTimeline, ElTimelineItem} from 'element-plus'
+import { ElTimeline, ElTimelineItem, ElTooltip} from 'element-plus'
 import {parseTime} from '../../utils/ruoyi'
 
 const statusList = new Map([

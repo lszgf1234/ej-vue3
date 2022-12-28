@@ -1,4 +1,4 @@
-### WxFormGroup form表单组件
+### EjFormGroup form表单组件
 * 过滤器场景
 * 表单提交组件场景
 * 表单项组件支持拓展，在

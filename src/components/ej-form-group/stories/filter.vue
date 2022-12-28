@@ -1,11 +1,11 @@
 <template>
   <div  class="w-m-5 w-p-4 w-bg-white">
-    <WxFormGroup v-model="params" :options="options" v-bind="formConfigs" v-on="handles"></WxFormGroup>
+    <EjFormGroup v-model="params" :options="options" v-bind="formConfigs" v-on="handles"></EjFormGroup>
   </div>
 </template>
 
 <script setup lang="jsx">
-import WxFormGroup from '../index'
+import EjFormGroup from '../index'
 
 const params = reactive({
   keywords: '',

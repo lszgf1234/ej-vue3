@@ -3,12 +3,12 @@
     <div class="w-mb-5">
       <el-button type="primary" @click="toggleOptions">响应式选择器-切换</el-button>
     </div>
-    <WxFormGroup v-model="params" :options="options" v-bind="formConfigs"></WxFormGroup>
+    <EjFormGroup v-model="params" :options="options" v-bind="formConfigs"></EjFormGroup>
   </div>
 </template>
 
 <script setup>
-import WxFormGroup from '../index'
+import EjFormGroup from '../index'
 
 const params = reactive({
   type: null,

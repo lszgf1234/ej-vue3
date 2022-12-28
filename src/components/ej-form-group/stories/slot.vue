@@ -1,15 +1,15 @@
 <template>
   <div  class="w-m-5 w-p-4 w-bg-white">
-    <WxFormGroup v-model="params" :options="options" v-bind="formConfigs">
+    <EjFormGroup v-model="params" :options="options" v-bind="formConfigs">
       <template #custom>
         <span class="w-text-red-500">这是一个通过slot自定义的表单项</span>
       </template>
-    </WxFormGroup>
+    </EjFormGroup>
   </div>
 </template>
 
 <script setup lang="jsx">
-import WxFormGroup from '../index'
+import EjFormGroup from '../index'
 
 const params = reactive({
   keywords: '',

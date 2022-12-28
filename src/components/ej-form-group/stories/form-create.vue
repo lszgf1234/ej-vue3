@@ -3,13 +3,13 @@
     <div class="w-mb-5">
       <el-button type="primary" @click="formConfigs.disabled = !formConfigs.disabled">{{!formConfigs.disabled ? '禁用' : '启用'}}</el-button>
     </div>
-    <wx-form-group v-model="params" :options="options" v-bind="formConfigs" v-on="handles"></wx-form-group>
+    <ej-form-group v-model="params" :options="options" v-bind="formConfigs" v-on="handles"></ej-form-group>
   </div>
 </template>
 
 <script setup lang="jsx">
 import {computed} from 'vue'
-import WxFormGroup from '../index'
+import EjFormGroup from '../index'
 
 import RenderTable from './page/render-table'
 

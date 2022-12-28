@@ -1,9 +1,9 @@
 <template>
-  <wx-table :data="data" :columns="columns"></wx-table>
+  <ej-table :data="data" :columns="columns"></ej-table>
 </template>
 
 <script setup>
-import WxTable from '../index'
+import EjTable from '../index'
 import {parseTime} from "../../../utils/ruoyi"
 const data = Array.from({length: 5}).map((_, idx) => ({
   id: idx + 100,
