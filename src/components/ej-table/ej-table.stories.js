@@ -1,8 +1,9 @@
 import {ElButton} from 'element-plus'
 import EjTable from './index.js';
-import {parseTime} from '../../utils/ruoyi'
 
 import BaseStory from './stories/base.vue'
+import MergeStory from './stories/merge.vue'
+import MultilevelStory from './stories/multilevel.vue'
 
 
 // 配置 使用插件
@@ -39,4 +40,12 @@ const Template = (args) => ({
 export const base = () => ({
   components: { BaseStory },
   template: '<BaseStory />',
+})
+export const merge = () => ({
+  components: { MergeStory },
+  template: '<MergeStory />',
+})
+export const multilevel = () => ({
+  components: { MultilevelStory },
+  template: '<MultilevelStory />',
 })

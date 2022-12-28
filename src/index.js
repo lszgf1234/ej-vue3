@@ -7,6 +7,21 @@ import EjEditor from './components/ej-editor'
 //
 // import EjAuth from '@/directive/permission/btn-auths'
 
+/**
+ * 集合
+ * 按需
+ * */
+const components = [
+  EjWorkflowPreview,
+  EjWorkflowPreviewV1,
+  // EjTableList,
+  // EjTable,
+  EjFormGroup,
+  EjEditor,
+  //
+  // // 指令
+  // EjAuth,
+]
 export {
   EjWorkflowPreview,
   EjWorkflowPreviewV1,
@@ -21,14 +36,7 @@ export {
 
 export default {
   install(app) {
-    app.use(EjWorkflowPreview)
-    app.use(EjWorkflowPreviewV1)
-    // app.use(EjTableList)
-    // app.use(EjTable)
-    app.use(EjFormGroup)
-    app.use(EjEditor)
-    //
-    // app.use(EjAuth)
+    components.forEach(component => app.use(component.name, component))
   }
 }
 

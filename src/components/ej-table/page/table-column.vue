@@ -5,14 +5,33 @@
     </template>
   </el-table-column>
 </template>
-<script setup name="EjTableColumn">
+<script>
 // 支持表头递归
 import {ElTableColumn} from 'element-plus'
-defineProps({
+import {defineComponent} from 'vue'
+
+
+/*defineProps({
   children: {
     type: Array,
     default: () => ([])
   }
+})*/
+
+export default defineComponent({
+  name: 'EjTableColumn',
+
+  components: {
+    ElTableColumn,
+  },
+
+  props: {
+    children: {
+      type: Array,
+      default: () => ([])
+    }
+  },
+  setup() {},
 })
 </script>
 <style scoped lang="scss"></style>

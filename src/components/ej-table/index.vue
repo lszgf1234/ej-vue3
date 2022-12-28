@@ -22,7 +22,7 @@
  *  render + jsx
  * */
 import { defineProps, ref, watch } from 'vue'
-import {ElTable} from 'element-plus'
+import {ElTable, ElTableColumn} from 'element-plus'
 
 import EjTableColumn from './page/table-column.vue'
 

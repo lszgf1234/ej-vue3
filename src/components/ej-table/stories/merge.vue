@@ -6,8 +6,10 @@
   </div>
 </template>
 
-<script setup lang="jsx">
+<script setup>
 import {ref} from 'vue'
+import {ElButton} from 'element-plus'
+
 import EjTable from '../index'
 
 let data = ref([
