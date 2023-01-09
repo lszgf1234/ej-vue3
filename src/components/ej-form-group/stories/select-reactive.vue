@@ -8,6 +8,9 @@
 </template>
 
 <script setup>
+import {reactive, ref} from 'vue'
+import {ElButton} from 'element-plus'
+
 import EjFormGroup from '../index'
 
 const params = reactive({

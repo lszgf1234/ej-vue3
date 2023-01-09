@@ -66,6 +66,9 @@
 
 import {defineComponent, computed, ref, isReactive} from 'vue'
 import {ElButton, ElForm, ElFormItem} from 'element-plus'
+import {
+  Refresh,
+} from '@element-plus/icons-vue'
 
 import {
   cardNoValidator,
@@ -246,7 +249,7 @@ export default defineComponent({
         click() {
           ctx.emit('refresh', params$)
         },
-        icon: 'refresh'
+        icon: Refresh,
       },
     }
     const handles$ = props.handles.map(key => {

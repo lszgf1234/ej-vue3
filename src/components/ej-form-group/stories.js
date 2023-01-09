@@ -1,8 +1,10 @@
 import EjFormGroup from './index.js';
 
 import FilterStory from './stories/filter.vue'
-// import MergeStory from './stories/merge.vue'
-// import MultilevelStory from './stories/multilevel.vue'
+import FormCreateStory from './stories/form-create.vue'
+import OptionsReactiveStory from './stories/select-reactive.vue'
+import SlotStory from './stories/slot.vue'
+import ValidateStory from './stories/validate.vue'
 
 // 配置 使用插件
 export default {
@@ -38,6 +40,22 @@ const Template = (args) => ({
 export const filter = () => ({
   components: { FilterStory },
   template: '<FilterStory />',
+})
+export const formCreate = () => ({
+  components: { FormCreateStory },
+  template: '<FormCreateStory />',
+})
+export const optionsReactive = () => ({
+  components: { OptionsReactiveStory },
+  template: '<OptionsReactiveStory />',
+})
+export const slot = () => ({
+  components: { SlotStory },
+  template: '<SlotStory />',
+})
+export const validate = () => ({
+  components: { ValidateStory },
+  template: '<ValidateStory />',
 })
 /*export const merge = () => ({
   components: { MergeStory },

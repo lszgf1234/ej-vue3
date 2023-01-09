@@ -5,10 +5,8 @@
 </template>
 
 <script setup lang="jsx">
-import {computed} from 'vue'
+import {computed, reactive, ref} from 'vue'
 import EjFormGroup from '../index'
-
-import RenderTable from './page/render-table'
 
 const params = reactive({
   phone: '',

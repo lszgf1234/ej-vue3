@@ -4,7 +4,8 @@
 
 <script setup lang="jsx">
 import EjTable from '../../../../components/ej-table'
-import {parseTime} from "@/utils/ruoyi";
+import {parseTime} from '../../../../utils/ruoyi'
+
 const data = Array.from({length: 5}).map((_, idx) => ({
   id: idx + 100,
   name: `名称${idx}`,
