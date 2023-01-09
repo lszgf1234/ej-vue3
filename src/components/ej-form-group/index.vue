@@ -1,25 +1,21 @@
 <template>
-  <el-form ref="formRef" :model="params$" v-bind="$attrs">
-    <div
-      v-for="(it, idx) of options"
+  <el-form ref="formRef" :model="params$" v-bind="$attrs" :rules="rules$" @submit.prevent="() => {}" class="ej-form">
+    <template
+      v-for="(it, idx) of options$"
       :key="idx"
-      :style="{
-        width: itemWidth
-      }"
-      :class="{
-        'w-inline': $attrs.inline,
-      }"
     >
-      <el-form-item v-bind="it">
+      <el-form-item v-bind="it" :style="{
+        width: it.itemWidth || itemWidth
+      }">
         <ElInputs v-if="inputs.includes(it.template)" v-bind="it" v-model="params$[it.prop]"></ElInputs>
         <template v-else-if="it.slotName">
           <slot :name="it.slotName"></slot>
         </template>
         <component :is="it.template" v-else v-bind="it" v-model="params$[it.prop]"></component>
       </el-form-item>
-    </div>
+    </template>
 
-    <el-form-item>
+    <el-form-item v-if="action">
       <slot name="action">
         <template v-if="handles$.length && !$attrs.disabled">
           <el-button
@@ -27,7 +23,8 @@
             :key="idx"
             v-bind="it"
             @click="it.click"
-          >{{it.title}}</el-button>
+          >{{ it.title }}
+          </el-button>
         </template>
       </slot>
     </el-form-item>
@@ -68,6 +65,12 @@
  * */
 
 import {defineComponent, computed, ref, isReactive} from 'vue'
+import {ElButton, ElForm, ElFormItem} from 'element-plus'
+
+import {
+  cardNoValidator,
+  phoneValidator,
+} from '../../utils/validate'
 
 import * as CustomFormItem from './form-value'
 
@@ -75,12 +78,103 @@ const inputs = [
   'ElAutocomplete', 'ElCascader', 'ElDatePicker', 'ElInputNumber', 'ElSlider', 'ElSwitch', 'ElTimePicker', 'ElTimeSelect'
 ]
 
+/**
+ * 输入类 ElInput ElInputNumber
+ *  ElInput
+ *  el-input
+ * 选择类 ElSelect ElTimePicker ElTimeSelect
+ * */
+
+function placeholderAdd(item) {
+  if(!item) return ''
+  const inputs = [
+    'ElInput',
+    'el-input',
+    'ElInputNumber',
+    'el-input-number',
+  ]
+
+  const selects = [
+    'ElSelect',
+    'ElTimePicker',
+    'ElTimeSelect',
+    'ElDatePicker',
+    'el-select',
+    'el-timepicker',
+    'el-time-select',
+    'el-date-picker',
+  ]
+  /**
+   * 缺省placeholder处理*/
+
+  if (inputs.includes(item.template)) {
+    return `请输入${item.label}`
+  } else if (selects.includes(item.template)) {
+    return `请选择${item.label}`
+  }
+}
+
+/**
+ * 验证 - 针对输入类型
+ * 处理验证规则
+ * 提示信息 非空提示自动补全
+ * 根据类型 自动添加验证规则
+ * 返回规则对象
+ *
+ * 如果是空对象, 补全非空提示
+ * 类型 type
+ *  email
+ *
+ * */
+function validationRules(rule, key, options) {
+  let rule$ = {
+    ...rule,
+  }
+
+  /** 处理非空*/
+  if (rule.required) {
+    const option = options.find(it => it.prop === key)
+    rule$ = {
+      message: placeholderAdd(option),
+      ...rule$,
+    }
+  }
+
+  /**
+   * 处理type*/
+  const types = new Map([
+    ['phone', (rule, value, callback) => {
+      if (!phoneValidator()) {
+        callback(new Error('手机号格式错误'))
+      }
+      callback()
+    }],
+    ['cardNo', (rule, value, callback) => {
+      if (!cardNoValidator()) {
+        callback(new Error('身份证格式错误'))
+      }
+      callback()
+    }],
+  ])
+
+  if (types.has(rule.type)) {
+    rule$ = {
+      validator: types.get(rule.type),
+      trigger: 'blur',
+    }
+  }
+
+  return rule$
+}
 
 export default defineComponent({
   name: 'EjFormGroup',
 
   components: {
     ...CustomFormItem,
+    ElButton,
+    ElForm,
+    ElFormItem,
   },
 
   emits: ['update:modelValue', 'submit', 'refresh', 'reset'],
@@ -102,15 +196,23 @@ export default defineComponent({
       type: Array,
       default: () => (['submit', 'reset']),
     },
+    action: {
+      type: Boolean,
+      default: true,
+    },
+    rules: {
+      type: Object,
+      default: () => ({})
+    },
   },
 
   setup(props, ctx) {
     const formRef = ref(null)
     const params$ = computed({
-      get () {
+      get() {
         return props.modelValue
       },
-      set (val) {
+      set(val) {
         ctx.emit('update:modelValue', val)
       }
     })
@@ -158,15 +260,47 @@ export default defineComponent({
         return handles[key]
       }
     })
+    const options$ = computed(() => {
+      return props.options.map(it => ({
+        placeholder: placeholderAdd(it),
+        ...it,
+      }))
+    })
+    /** 处理验证规则
+     * 遍历规则
+     *   如果规则为对象
+     *    处理对象
+     *   如果规则为数组 ,继续map
+     *    处理对象
+     *   */
+    const rules$ = computed(() => {
+      const rules = {}
+      Object.keys(props.rules).map(key => {
+        if (Array.isArray(props.rules[key])) {
+          rules[key] = props.rules[key].map(r => validationRules(r, key, props.options))
+        } else {
+          rules[key] = validationRules(props.rules[key], key, props.options)
+        }
+      })
+
+      return rules
+    })
 
     return {
       params$,
       inputs,
       handles$,
       formRef,
+      options$,
+      rules$,
     }
   }
 })
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.ej-form.el-form--inline .el-form-item {
+  margin-right: 0;
+  padding-right: 32px;
+}
+</style>

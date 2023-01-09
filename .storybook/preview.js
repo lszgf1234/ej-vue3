@@ -1,5 +1,5 @@
-import 'element-plus/dist/index.css'
 import '../src/base.scss'
+import 'element-plus/dist/index.css'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

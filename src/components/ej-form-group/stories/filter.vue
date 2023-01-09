@@ -5,6 +5,8 @@
 </template>
 
 <script setup lang="jsx">
+import {reactive, ref} from 'vue'
+
 import EjFormGroup from '../index'
 
 const params = reactive({
