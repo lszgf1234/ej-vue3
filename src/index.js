@@ -1,5 +1,5 @@
 import EjWorkflowPreview from './components/ej-workflow-preview'
-import EjWorkflowPreviewV1 from './wx-workflow-preview-v1'
+import EjWorkflowPreviewV1 from './components/ej-workflow-preview-v1'
 // import EjTable from './wx-table/index.js'
 // import EjTableList from './Table/index.js'
 import EjFormGroup from './components/ej-form-group/index.js'
