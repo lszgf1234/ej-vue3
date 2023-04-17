@@ -236,7 +236,7 @@ export default defineComponent({
         click: handleSubmit,
         type: 'primary',
         title: '搜索',
-        // icon: 'search'
+        icon: 'search'
       },
       reset: {
         title: '重置',

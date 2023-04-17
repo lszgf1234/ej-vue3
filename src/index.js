@@ -36,7 +36,7 @@ export {
 
 export default {
   install(app) {
-    components.forEach(component => app.use(component.name, component))
+    components.forEach(component => app.use(component))
   }
 }
 

@@ -1,5 +1,5 @@
 /**
- * 判断url是否是http或https 
+ * 判断url是否是http或https
  * @param {string} path
  * @returns {Boolean}
  */
@@ -86,7 +86,7 @@ export function validEmail(email) {
  * @returns {Boolean}
  */
  export function cardNoValidator(value) {
-	const reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+  const reg = /^[1-9]\d{5}(18|19|20)\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
 	return reg.test(value);
 }
 
