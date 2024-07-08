@@ -10,6 +10,7 @@
 <script setup lang="jsx">
 import {computed, reactive, ref} from 'vue'
 import EjFormGroup from '../index'
+import {ElButton} from 'element-plus'
 
 import RenderTable from './page/render-table.vue'
 

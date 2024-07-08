@@ -1,0 +1,5 @@
+Extraneous non-props attributes (placeholder, label, template, modelValue) were passed to component but could not be automatically inherited because component renders fragment or text root nodes.
+
+runtime.js:101 Feature flag __VUE_PROD_HYDRATION_MISMATCH_DETAILS__ is not explicitly defined. You are running the esm-bundler build of Vue, which expects these compile-time feature flags to be globally injected via the bundler config in order to get better tree-shaking in the production bundle
+
+error Error: [@vue/compiler-core] decodeEntities option is required in browser builds.

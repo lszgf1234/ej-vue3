@@ -1,1 +1,8 @@
 @import "./style/tailwindcss";
+
+.el-form {
+  .el-form-item__content {
+    min-width: 100px;
+  }
+}
+
