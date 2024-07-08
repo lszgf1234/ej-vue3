@@ -12,6 +12,8 @@ See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
+node版本18`18.20.0`
+
 ```sh
 yarn install
 ```
