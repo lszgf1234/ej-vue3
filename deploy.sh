@@ -6,6 +6,6 @@
 
 set -e
 git pull
-yarn i
+yarn install
 npm run build-storybook
 
