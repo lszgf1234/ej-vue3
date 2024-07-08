@@ -7,5 +7,5 @@
 set -e
 git pull
 yarn install
-npm run build-storybook
+yarn build-storybook
 
